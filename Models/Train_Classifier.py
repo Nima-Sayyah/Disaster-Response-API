@@ -109,7 +109,9 @@ def evaluate_model(model, X_test, Y_test):
 
 def save_model(model, model_filepath):
     """
-    Function: Save a pickle file of the model
+    Function: 
+    save_model: This function saves a pickle file of the model
+    
     Args:
     model: the classification model
     model_filepath (str): the path of pickle file
