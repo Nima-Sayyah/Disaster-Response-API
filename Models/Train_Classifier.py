@@ -92,7 +92,7 @@ def build_model():
 def evaluate_model(model, X_test, Y_test):
     """
     Function: 
-    evaluate_model: Thi function evaluates the model and print the f1 score, precision and recall for each output category of the dataset.
+    evaluate_model: This function evaluates the model and print the f1 score, precision and recall for each output category of the dataset.
     Args:
     model: the classification model
     X_test: test messages
@@ -107,3 +107,13 @@ def evaluate_model(model, X_test, Y_test):
     accuracy = (y_pred == Y_test.values).mean()
     print('The model accuracy is {:.3f}'.format(accuracy))
 
+def save_model(model, model_filepath):
+    """
+    Function: Save a pickle file of the model
+    Args:
+    model: the classification model
+    model_filepath (str): the path of pickle file
+    """
+
+    with open(model_filepath, 'wb') as f:
+        pickle.dump(model, f)
