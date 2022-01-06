@@ -89,3 +89,21 @@ def build_model():
 
     return cv
 
+def evaluate_model(model, X_test, Y_test):
+    """
+    Function: 
+    evaluate_model: Thi function evaluates the model and print the f1 score, precision and recall for each output category of the dataset.
+    Args:
+    model: the classification model
+    X_test: test messages
+    Y_test: test target
+    """
+    y_pred = model.predict(X_test)
+    i = 0
+    for col in Y_test:
+        print('Feature {}: {}'.format(i + 1, col))
+        print(classification_report(Y_test[col], y_pred[:, i]))
+        i = i + 1
+    accuracy = (y_pred == Y_test.values).mean()
+    print('The model accuracy is {:.3f}'.format(accuracy))
+
