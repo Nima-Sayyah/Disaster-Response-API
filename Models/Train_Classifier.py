@@ -33,8 +33,8 @@ def load_data(database_filepath):
        """
     engine = create_engine('sqlite:///{}'.format(database_filepath))
     df = pd.read_sql_table('disaster_messages_tbl', engine)
-    X = df['message']  # Message Column
-    Y = df.iloc[:, 4:]  # Classification label
+    X = df['message']  # Extracting the 'message' column
+    Y = df.iloc[:, 4:]  # Extracting classified labels
     return X, Y
 
 def tokenize(text):
@@ -49,13 +49,13 @@ def tokenize(text):
       lemm(list of str): a list of the root form of the message words
     """
 
-    # Normalize text
+    # Normalizing text (a-zA-Z0-9 matches all allalphanumeric characters)
     text = re.sub(r"[^a-zA-Z0-9]", " ", text.lower())
 
-    # Tokenize text
+    # Tokenizing text
     words = word_tokenize(text)
 
-    # Remove stop words
+    # Removing stop words
     stop = stopwords.words("english")
     words = [t for t in words if t not in stop]
 
@@ -73,13 +73,13 @@ def build_model():
        cv(list of str): classification model
      """
 
-    # Create a pipeline
+    # Create a pipeline: Adaboost Classifier 
     pipeline = Pipeline([
         ('vect', CountVectorizer(tokenizer=tokenize)),
         ('tfidf', TfidfTransformer()),
         ('clf', MultiOutputClassifier(AdaBoostClassifier()))
     ])
-    # Create Grid search parameters
+    # Creating Grid search parameters for Adaboost Classifier 
     parameters = {
         'tfidf__use_idf': (True, False),
         'clf__estimator__n_estimators': [50, 60, 70]
