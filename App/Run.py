@@ -130,7 +130,7 @@ def index():
 
 def go():
     # This saves user input in query (A MultiDict is a dictionary subclass customized to save all values for a key)
-    # "get()"" method returns the default value (second argument) if the requested data doesn’t exist.
+    # "get()"" method returns the default value (second argument) if the requested data does not exist.
     query = request.args.get('query', '') 
 
     # Using the model to predict the query - the result is an array as many as our label columns 
@@ -140,3 +140,9 @@ def go():
 
     # Rendering the go.html web-page 
     return render_template('go.html', query=query, classification_result=classification_results)
+
+def main():
+    app.run(host='0.0.0.0', port=3001, debug=True)
+
+if __name__ == '__main__':
+    main()
