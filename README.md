@@ -13,7 +13,7 @@
 
 The intention of the project is to classify the disaster messages into specific categories. The project utilises disaster data from [Figure Eight](https://www.figure-eight.com/) to build a model for an API that classifies disaster messages.
 
-Users can input messages via a web app and observe classification results in specfic categories. The web app also display visualizations of the data. 
+Users can input messages via a web app and observe classification results in classified categories. The web app also display visualizations of the data. 
 
 ## Installation <a name="installation"></a>
 
