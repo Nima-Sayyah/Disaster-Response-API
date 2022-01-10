@@ -40,7 +40,7 @@ The project encompasses three main parts:
 
 The files structure is arranged as below:
 
-	- README.md: read me file
+    - README.md: read me file
 	
     - ETL Pipeline.ipynb: contains ETL pipeline preparation code
 	
@@ -54,6 +54,7 @@ The files structure is arranged as below:
     
     - \Models
 		- Train_Classifier.py: classification code
+        - classifier.pkl: exported classifier model
     
     - \App
 	    - run.py: flask file to run the app
@@ -80,26 +81,17 @@ The libraries can be installed via virtual environment or in your local python d
 - sqlite3
 
 
-
-
-
- 
- 
- 
- 
-
-
 ## Instructions <a name="instructions"></a>
 
 To execute the app follow the instructions:
 1. Run the following commands in the project's root directory to set up your database and model.
 
     - To run ETL pipeline that cleans data and stores in database
-        `python data/process_data.py data/disaster_messages.csv data/disaster_categories.csv data/DisasterResponse.db`
+        `python Data/Process_Data.py Data/messages.csv Data/categories.csv Data/disaster_messages_database.db`
     - To run ML pipeline that trains classifier and saves
-        `python models/train_classifier.py data/DisasterResponse.db models/classifier.pkl`
+        `python Models/Train_Classifier.py Data/disaster_messages_database.db Models/classifier.pkl`
 
 2. Run the following command in the app's directory to run your web app.
-    `python run.py`
+    `python Run.py`
 
 3. Go to http://0.0.0.0:3001/
