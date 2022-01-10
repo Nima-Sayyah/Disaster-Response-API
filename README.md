@@ -15,11 +15,59 @@ The intention of the project is to classify the disaster messages into specific 
 
 Users can input messages via a web app and observe classification results in classified categories. The web app also display visualizations of the data. 
 
+## Project Descriptions<a name = "descriptions"></a>
+The project encompasses three main parts:
+
+1. **ETL Pipeline:** `Process_Data.py` file contains the script to create ETL pipline, which:
+
+- Loads the `messages` and `categories` datasets
+- Merges the two datasets
+- Cleans the data
+- Stores it in a SQLite database
+
+2. **ML Pipeline:** `Train_Classifier.py` file contains the script to create ML pipline, which:
+
+- Loads data from the SQLite database
+- Splits the dataset into training and test sets
+- Builds a text processing and machine learning pipeline
+- Trains and tunes a model using GridSearchCV
+- Outputs results on the test set
+- Exports the final model as a pickle file
+
+3. **Flask Web App:** the web app enables the user to enter a disaster message, and then view the categories of the message.
+
+## Files Descriptions <a name="files"></a>
+
+The files structure is arranged as below:
+
+	- README.md: read me file
+	
+    - ETL Pipeline.ipynb: contains ETL pipeline preparation code
+	
+    - ML Pipeline.ipynb: contains ML pipeline preparation code
+	
+    - \Data
+		- categories.csv: categories dataset
+		- messages.csv: messages dataset
+		- disaster_messages_database.db: disaster response database
+		- Process_Data.py: ETL process
+    
+    - \Models
+		- Train_Classifier.py: classification code
+    
+    - \App
+	    - run.py: flask file to run the app
+	    - \Templates
+			- master.html: main page of the web application 
+			- go.html: result web page
+	
+	
+
 ## Installation <a name="installation"></a>
 
-All libraries are available in Anaconda distribution of Python. The used libraries are:
+The libraries can be installed via virtual environment or in your local python directory. All libraries are available in Anaconda distribution of Python. The codes are expected to run with Python version 3 or above. The used libraries are:
 
-- pandas
+- pandas 
 - re
 - sys
 - json
@@ -31,56 +79,15 @@ All libraries are available in Anaconda distribution of Python. The used librari
 - plotly
 - sqlite3
 
-The code should run using Python versions 3.*.
 
 
 
 
-## Project Descriptions<a name = "descriptions"></a>
-The project has three componants which are:
-
-1. **ETL Pipeline:** `process_data.py` file contain the script to create ETL pipline which:
-
-- Loads the `messages` and `categories` datasets
-- Merges the two datasets
-- Cleans the data
-- Stores it in a SQLite database
-
-2. **ML Pipeline:** `train_classifier.py` file contain the script to create ML pipline which:
-
-- Loads data from the SQLite database
-- Splits the dataset into training and test sets
-- Builds a text processing and machine learning pipeline
-- Trains and tunes a model using GridSearchCV
-- Outputs results on the test set
-- Exports the final model as a pickle file
-
-3. **Flask Web App:** the web app enables the user to enter a disaster message, and then view the categories of the message.
-
-The web app also contains some visualizations that describe the data. 
  
  
  
-## Files Descriptions <a name="files"></a>
+ 
 
-The files structure is arranged as below:
-
-	- README.md: read me file
-	- ETL Pipeline Preparation.ipynb: contains ETL pipeline preparation code
-	- ML Pipeline Preparation.ipynb: contains ML pipeline preparation code
-	- workspace
-		- \app
-			- run.py: flask file to run the app
-		- \templates
-			- master.html: main page of the web application 
-			- go.html: result web page
-		- \data
-			- disaster_categories.csv: categories dataset
-			- disaster_messages.csv: messages dataset
-			- DisasterResponse.db: disaster response database
-			- process_data.py: ETL process
-		- \models
-			- train_classifier.py: classification code
 
 ## Instructions <a name="instructions"></a>
 
