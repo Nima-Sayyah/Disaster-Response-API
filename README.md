@@ -53,14 +53,14 @@ The files structure is arranged as below:
 		- Process_Data.py: ETL process
     
     - \Models
-		- Train_Classifier.py: classification code
-        - classifier.pkl: exported classifier model
+	        - Train_Classifier.py: classification code
+            - classifier.pkl: exported classifier model
     
     - \App
-	    - run.py: flask file to run the app
-	    - \Templates
-			- master.html: main page of the web application 
-			- go.html: result web page
+	        - run.py: flask file to run the app
+	        - \Templates
+			    - master.html: main page of the web application 
+			    - go.html: result web page
 	
 	
 
